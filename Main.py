@@ -47,7 +47,7 @@ def get_arrival():
     today = datetime.now() #dostan obecna date
     max_day = today + timedelta(days = 4)
     
-    print('Jakiego dnia miesiaca przyjedziesz?')
+    print('Jakiego dnia miesiaca przyjedziesz? Wpisz dzien w odpowiednim formacie!')
     print(today.strftime('%d'), '-', max_day.strftime('%d')) #wysw konkretne dni miesiaca
     day = input() #wczytaj odpowiedz
     print('O ktorej godzinie przyjedziesz?')
@@ -59,8 +59,13 @@ def get_arrival():
 
 def get_forecast(arrival, weather_data):
     for forecast in weather_data['list']: #iteracja po elementach listy weather_data
-        if forecast['dt_txt'] = arrival:
+        if forecast['dt_txt'] == arrival:
             return forecast
 
-        
+def get_readable_forecast(forecast):
+    weahter = {}
+    weather['cloudiness'] = forecast['clouds']['all']
+    weather['temperature'] = float( forecast['main']['temp'] ) #castujemy stringa na floata
+    weather['humidity'] = int( forecast['main']['humidity'] )
 
+    
